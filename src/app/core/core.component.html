@@ -1,0 +1,55 @@
+<!-- <div class="site">
+  <header>
+    <app-header></app-header>
+  </header>
+  <main>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </main>
+  <footer>
+    <app-footer></app-footer>
+  </footer>
+</div> -->
+
+
+<nz-layout *ngIf="!loginCheck" class="site">
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate" [nzCollapsedWidth]="0" [nzWidth]="180" >
+        <app-sidebar [isCollapsed]="isCollapsed"></app-sidebar>
+    </nz-sider>
+    <nz-layout class="main">
+      <!-- <app-custom-header [isCollapsed]="isCollapsed" [realUserName]="realUserName"  (toggleEvent)="toggle($event)" [isMobile]="isMobile"></app-custom-header> -->
+      <app-header [isCollapsed]="isCollapsed"   (toggleEvent)="toggle($event)" ></app-header>
+      <nz-content style="margin:0 16px;">
+        <nz-tabset >
+            <nz-tab nzTitle="Tab 1">
+              Content of Tab Pane 1
+            </nz-tab>
+            <nz-tab nzTitle="Tab 2">
+              Content of Tab Pane 2
+            </nz-tab>
+            <nz-tab nzTitle="Tab 3">
+              Content of Tab Pane 3
+            </nz-tab>
+          </nz-tabset>
+        <nz-breadcrumb style="margin:16px 0;">
+            <nz-breadcrumb-item>User</nz-breadcrumb-item>
+            <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <div style="padding:24px; background: #fff; min-height: 360px;">
+          Bill is a cat.
+        </div>
+        <!-- <app-custom-breadcrumb [breadcrumbOne]="breadcrumbOne" [breadcrumbSecond]="breadcrumbSecond"></app-custom-breadcrumb> -->
+        <!-- <ui-view></ui-view> -->
+      </nz-content>
+      <app-footer></app-footer>
+    </nz-layout>
+  </nz-layout>
+  <ng-template *ngIf="!loginCheck" #trigger>
+    <i class="anticon anticon-up"></i>
+  </ng-template>
+  <!-- <ui-view *ngIf="loginCheck">
+  </ui-view> -->
